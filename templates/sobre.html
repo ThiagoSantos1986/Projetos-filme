@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+    <h2 style="text-align: center;">Diario do Professor</h2>
+    <hr>
+    {% for registro in registros %}
+        <details>
+            <summary>{{registro.Aluno}}</summary>
+            <p>{{registro.Nota}}</p>
+        </details> 
+    {% endfor %}
+    <form action="{{url_for('sobre')}}" method="post">
+        <div class="form-group">
+        <label for="label_aluno">Nome:</label>
+        <input type="text" class="form-control" name="aluno" placeholder="Digite o Nome do aluno" id="label_aluno" required>
+        </div>
+        <div class="form-group">
+        <label for="label_nota">Nota:</label>
+        <input type="number" name="nota" id="label_nota" class="form-control" placeholder="Digite a Nota" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Adcionar</button>
+    </form>
+
+{% endblock conteudo %}
