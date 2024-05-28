@@ -38,7 +38,7 @@ def filmes():
 
     json_data = json.loads(response.text)
 
-    return  render_template("filmes.html",filmes=json_data['results'])
+    return  render_template("filmes.html", filmes=json_data['results'])
 
 
 

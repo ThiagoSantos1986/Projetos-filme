@@ -2,7 +2,22 @@
 
 {% block conteudo %}
 
-<h1>filmes</h1>
-
-
+<h2 style="text-align: center;">LISTA DE FILMES</h2>
+<hr>
+<div class="row ">
+    {% for filme in filmes%}
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="http://image.tmdb.org/t/p/w500{{filme.backdrop_path}}" class="card-img-top" alt="image filme">
+                <div class="card-body">
+                    <h5 class="card-title">{{filme.title}}</h5>
+                    <p class="card-text">{{filme.overview}}</p>
+                    <hr>
+                    <h4>Nota Média <span class="badge bg-secondary">{{ filme.vote_average}}</span></h4>
+                    
+                </div>
+            </div>   
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
