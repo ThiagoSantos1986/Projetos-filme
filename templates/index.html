@@ -14,9 +14,9 @@
 <form action="{{url_for('index')}}" method="POST">
     <div class="form-group">
         <label for="label_fruta">Fruta</label>
-        <input type="text" class="form-control" name="fruta" id="label_fruta" placeholder="Digite o nome de uma fruta">
+        <input type="text" class="form-control" name="fruta" id="label_fruta" placeholder="Digite o nome de uma fruta" autocomplete="off">
     </div>
     <button  style="margin-top: 1rem;" type="submit" class="btn btn-primary">Adcionar</button>
 </form>
-<p>bem vindo ao sistema</p>
+
 {% endblock conteudo %}
