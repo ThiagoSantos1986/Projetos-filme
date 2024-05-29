@@ -24,11 +24,20 @@ def sobre():
     
     return render_template('sobre.html',  registros=registros)
     
-@app.route("/filmes")
-def filmes():
-    url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=4cbe57e96620e802aeaa000cee7fe00e"
-    
-    # url = "https://api.themoviedb.org/3/movie/upcoming"
+@app.route("/filmes/<propriedade>", methods=["GET", "POST"])
+def filmes(propriedade):
+
+    if propriedade == 'populares':
+        url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=4cbe57e96620e802aeaa000cee7fe00e"
+    elif propriedade == 'em_cartaz':
+        url = "https://api.themoviedb.org/3/movie/now_playing?language=pt-br&page=1&api_key=4cbe57e96620e802aeaa000cee7fe00e"
+    elif propriedade == 'terror':
+        url = "https://api.themoviedb.org/3/discover/movie?with_genres=27&api_key=4cbe57e96620e802aeaa000cee7fe00e"
+    elif propriedade == 'kids':
+        url = "https://api.themoviedb.org/3/discover/movie?with_genres=16&api_key=4cbe57e96620e802aeaa000cee7fe00e"
+    elif propriedade == 'documentario':   
+        url = "https://api.themoviedb.org/3/discover/movie?with_genres=99&api_key=4cbe57e96620e802aeaa000cee7fe00e"
+
     # headers = {
     #     "accept": "application/json",
     #     "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0Y2JlNTdlOTY2MjBlODAyYWVhYTAwMGNlZTdmZTAwZSIsInN1YiI6IjY2NGM0MzljYzk4ZTAxZDNjZDU0YWI5ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UMcaacBy8xiR1EdAsuN0IznBpwxSmBSl9FauEPy1ipI"

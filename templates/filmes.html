@@ -4,9 +4,9 @@
 
 <h2 style="text-align: center;">LISTA DE FILMES</h2>
 <hr>
-<div class="row ">
+<div class="d-flex justify-content-around flex-wrap">
     {% for filme in filmes%}
-        <div class="col-md-4">
+        <div class="p-2 bd-highlight">
             <div class="card" style="width: 18rem;">
                 <img src="http://image.tmdb.org/t/p/w500{{filme.backdrop_path}}" class="card-img-top" alt="image filme">
                 <div class="card-body">
